@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Assests/logo.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <div class="main">
+        <aside class="sidebar left-sidebar">
+            <div class="sidebar-header">
+                <p class="file-name">Untitled</p>
+                <i data-lucide="pencil" class="action-icon"></i>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="section-title-row">
+                    <i data-lucide="chevron-down" class="chevron-icon"></i>
+                    <span class="label">Layers</span>
+                </div>
+                <div class="section-content">
+                </div>
+            </div>
+        </aside>
+
+        <main class="canvas-area">
+            <div class="dock">
+                <div class="tool-group active">
+                    <i data-lucide="mouse-pointer-2"></i>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="tool-group">
+                    <i data-lucide="frame"></i>
+                </div>
+
+                <div class="tool-group">
+                    <i data-lucide="square"></i>
+                </div>
+
+                <div class="tool-group">
+                    <i data-lucide="type"></i>
+                </div>
+            </div>
+
+            <div class="mouse-follower">
+                <img src="Assests/cursor.png" alt="cursor">
+            </div>
+        </main>
+
+        <aside class="sidebar right-sidebar">
+            <div class="sidebar-header">
+                <div class="user-logo">
+                    <img src="https://i.pinimg.com/736x/68/71/76/6871769670dc0a8eb1c337a0e4f27e93.jpg" alt="User Logo">
+                </div>
+                <button class="export-btn">Export</button>
+            </div>
+
+            <div class="export-panel" style="display: none;">
+                <div class="section-title-row">
+                    <span class="label">Export</span>
+                </div>
+                <div class="props-container">
+                    <button id="btn-export-json" class="preset-btn"
+                        style="flex-direction: row; justify-content: space-between; width: 100%;">
+                        <span class="preset-name">JSON</span>
+                        <span class="preset-dim">.json</span>
+                    </button>
+                    <button id="btn-export-html" class="preset-btn"
+                        style="flex-direction: row; justify-content: space-between; width: 100%;">
+                        <span class="preset-name">HTML</span>
+                        <span class="preset-dim">.html</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="frame-panel" style="display: none;">
+                <div class="section-title-row">
+                    <span class="label">Frames</span>
+                </div>
+                <div class="preset-list">
+                    <button class="preset-btn" data-w="480" data-h="341" data-name="Desktop">
+                        <span class="preset-name">Desktop</span>
+                        <span class="preset-dim">1440 1024</span>
+                    </button>
+                    <button class="preset-btn" data-w="130" data-h="281" data-name="Mobile">
+                        <span class="preset-name">Mobile</span>
+                        <span class="preset-dim">390 844</span>
+                    </button>
+                    <button class="preset-btn" data-w="256" data-h="341" data-name="Tablet">
+                        <span class="preset-name">Tablet</span>
+                        <span class="preset-dim">768 1024</span>
+                    </button>
+                    <button class="preset-btn" data-w="360" data-h="360" data-name="Insta Post">
+                        <span class="preset-name">Instagram Post</span>
+                        <span class="preset-dim">1080 1080</span>
+                    </button>
+                    <button class="preset-btn" data-w="360" data-h="640" data-name="Insta Story">
+                        <span class="preset-name">Instagram Story</span>
+                        <span class="preset-dim">1080 1920</span>
+                    </button>
+                    <button class="preset-btn" data-w="427" data-h="240" data-name="Thumbnail">
+                        <span class="preset-name">YouTube Thumbnail</span>
+                        <span class="preset-dim">1280 720</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="properties-panel" style="display: none;">
+                <div class="section-title-row">
+                    <span class="label">Properties</span>
+                </div>
+                <div class="props-container">
+                    <div class="prop-row">
+                        <label>W</label>
+                        <input type="number" id="prop-width" class="prop-input" placeholder="0">
+                    </div>
+                    <div class="prop-row">
+                        <label>H</label>
+                        <input type="number" id="prop-height" class="prop-input" placeholder="0">
+                    </div>
+                    <div class="prop-row">
+                        <label>Fill</label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="prop-color" value="#d9d9d9">
+                            <span id="prop-color-hex">#d9d9d9</span>
+                        </div>
+                    </div>
+                    <div class="prop-row">
+                        <label>Radius</label>
+                        <input type="number" id="prop-radius" class="prop-input" placeholder="0">
+                    </div>
+                    <div class="prop-row hidden" id="prop-text-style-row">
+                        <div class="prop-col">
+                            <label>Size</label>
+                            <input type="number" id="prop-font-size" class="prop-input" placeholder="16">
+                        </div>
+                        <div class="prop-col">
+                            <label>Color</label>
+                            <div class="color-picker-wrapper">
+                                <input type="color" id="prop-text-color" value="#ffffff">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-row hidden" id="prop-text-row">
+                        <label>Content</label>
+                        <textarea id="prop-text" class="prop-input prop-textarea" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
